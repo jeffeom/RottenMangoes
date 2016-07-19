@@ -56,7 +56,7 @@
                 NSDictionary *posters = aMovie[@"posters"];
                 NSURL *imageUrl = [NSURL URLWithString: posters[@"original"]];
                 NSDictionary *links = aMovie[@"links"];
-                NSString *stringURLWithKey = [links[@"reviews"] stringByAppendingString:@"?apikey=j9fhnct2tp8wu2q9h75kanh9&page_limit=3" ];
+                NSString *stringURLWithKey = [links[@"reviews"] stringByAppendingString:@"?apikey=j9fhnct2tp8wu2q9h75kanh9&page_limit=3"];
                 NSString *newStringURL = [stringURLWithKey stringByReplacingOccurrencesOfString:@"https" withString:@"http"];
                 NSURL *reviewURL = [NSURL URLWithString: newStringURL];
                 
@@ -127,15 +127,20 @@
 
 #pragma mark - Segue
 
--(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    [self performSegueWithIdentifier:@"showReview" sender:self.objects[indexPath.item]];
-}
+//-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+////    [self performSegueWithIdentifier:@"showReview" sender:self.objects[indexPath.item]];
+//}
 
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(Movies *)sender{
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    NSIndexPath *indexPath = [[self.collectionView indexPathsForSelectedItems] firstObject];
+    Movies *movie = self.objects[indexPath.item];
+    //    Movies *movie = (Movies*) sender;
     if([[segue identifier] isEqualToString:@"showReview"]){
-        [[segue destinationViewController] setDetailItem:sender];
+        [[segue destinationViewController] setDetailItem:movie];
     }
 }
+
 
 @end

@@ -81,6 +81,7 @@
                                             <outlet property="imageView" destination="zCx-nL-IoT" id="X73-Fg-fK3"/>
                                             <outlet property="titleLabel" destination="AhC-XV-qls" id="YfK-DO-V96"/>
                                             <outlet property="yearLabel" destination="2Ee-46-QLZ" id="thq-la-cYc"/>
+                                            <segue destination="E4B-nc-RRH" kind="show" identifier="showReview" id="5FK-eI-wXK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -101,7 +102,6 @@
                     <navigationItem key="navigationItem" id="ex9-pz-gzU"/>
                     <connections>
                         <outlet property="collectionView" destination="WSP-8p-peK" id="hB8-pz-urK"/>
-                        <segue destination="E4B-nc-RRH" kind="show" identifier="showReview" id="cXt-EG-3wx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNF-oD-KjJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
