@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Movies-->
         <scene sceneID="gIV-MQ-mCr">
             <objects>
                 <viewController id="o6n-nh-Ob2" customClass="ViewController" sceneMemberID="viewController">
@@ -99,7 +99,7 @@
                             <constraint firstItem="WSP-8p-peK" firstAttribute="top" secondItem="oDC-gR-vwl" secondAttribute="top" id="phr-73-lcI"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="ex9-pz-gzU"/>
+                    <navigationItem key="navigationItem" title="Movies" id="Oip-Jb-i7d"/>
                     <connections>
                         <outlet property="collectionView" destination="WSP-8p-peK" id="hB8-pz-urK"/>
                     </connections>
@@ -108,7 +108,7 @@
             </objects>
             <point key="canvasLocation" x="2210" y="-152"/>
         </scene>
-        <!--Review View Controller-->
+        <!--Reviews-->
         <scene sceneID="PWR-f7-2Or">
             <objects>
                 <viewController id="E4B-nc-RRH" customClass="ReviewViewController" sceneMemberID="viewController">
@@ -131,7 +131,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loading..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9NG-ua-Ejp">
-                                <rect key="frame" x="262.5" y="318" width="75" height="21"/>
+                                <rect key="frame" x="262" y="318" width="75" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="21" id="1Ms-Op-4sl"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="42" id="e7t-yW-v6i"/>
@@ -150,17 +150,27 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zr6-FL-qD2">
+                                <rect key="frame" x="235.5" y="430" width="129" height="30"/>
+                                <state key="normal" title="Show Theatre Map"/>
+                                <connections>
+                                    <segue destination="Kg3-tw-WPq" kind="show" identifier="showMap" id="9j2-fC-DDC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Zr6-FL-qD2" firstAttribute="centerX" secondItem="Idn-5H-MbS" secondAttribute="centerX" id="2a0-RC-e03"/>
                             <constraint firstItem="GhN-1X-dPt" firstAttribute="top" secondItem="9NG-ua-Ejp" secondAttribute="bottom" constant="8" id="4sn-v6-OSg"/>
                             <constraint firstItem="9NG-ua-Ejp" firstAttribute="top" secondItem="V5W-qm-nca" secondAttribute="bottom" constant="8" id="F1g-DV-PWd"/>
                             <constraint firstItem="V5W-qm-nca" firstAttribute="centerX" secondItem="Idn-5H-MbS" secondAttribute="centerX" id="Lhb-pd-7tH"/>
                             <constraint firstItem="V5W-qm-nca" firstAttribute="centerY" secondItem="Idn-5H-MbS" secondAttribute="centerY" id="OaV-PJ-ePh"/>
+                            <constraint firstItem="Zr6-FL-qD2" firstAttribute="top" secondItem="GhN-1X-dPt" secondAttribute="bottom" constant="62" id="Uuf-4c-tUZ"/>
                             <constraint firstItem="GhN-1X-dPt" firstAttribute="centerX" secondItem="Idn-5H-MbS" secondAttribute="centerX" id="Y12-zK-beE"/>
                             <constraint firstItem="9NG-ua-Ejp" firstAttribute="centerX" secondItem="Idn-5H-MbS" secondAttribute="centerX" id="rSS-6y-zBS"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Reviews" id="My7-NJ-gC9"/>
                     <connections>
                         <outlet property="firstCLabel" destination="V5W-qm-nca" id="XwO-cD-cxk"/>
                         <outlet property="secondCLabel" destination="9NG-ua-Ejp" id="aE6-Ta-ttf"/>
@@ -170,6 +180,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RjP-OA-dQd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2973" y="-152"/>
+        </scene>
+        <!--Map-->
+        <scene sceneID="2gs-sj-Saq">
+            <objects>
+                <viewController id="Kg3-tw-WPq" customClass="MapViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oGX-jT-Z5I"/>
+                        <viewControllerLayoutGuide type="bottom" id="eD8-Q7-WFI"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TeS-ZO-nd8">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1xc-IJ-lfQ">
+                                <rect key="frame" x="0.0" y="64" width="600" height="536"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Kg3-tw-WPq" id="kuX-ER-TK1"/>
+                                </connections>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="1xc-IJ-lfQ" secondAttribute="trailing" id="Rtu-XF-0Nl"/>
+                            <constraint firstItem="1xc-IJ-lfQ" firstAttribute="leading" secondItem="TeS-ZO-nd8" secondAttribute="leading" id="i1n-Ay-OhT"/>
+                            <constraint firstItem="1xc-IJ-lfQ" firstAttribute="top" secondItem="oGX-jT-Z5I" secondAttribute="bottom" id="n0S-Ue-pxe"/>
+                            <constraint firstItem="eD8-Q7-WFI" firstAttribute="top" secondItem="1xc-IJ-lfQ" secondAttribute="bottom" id="xp2-cA-4eP"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Map" id="D8h-lP-KmW"/>
+                    <connections>
+                        <outlet property="mapView" destination="1xc-IJ-lfQ" id="ICp-3Y-IxI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lQq-3z-BpO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3627" y="-152"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qWc-Qb-TUi">

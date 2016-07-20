@@ -72,4 +72,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    
+    Movies *movie = self.detailItem;
+    if([[segue identifier] isEqualToString:@"showMap"]){
+        [[segue destinationViewController] setDetailItem:movie];
+    }
+}
+
 @end
